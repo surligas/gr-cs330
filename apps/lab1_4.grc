@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.8'?>
+<?grc format='1' created='3.7.9'?>
 <flow_graph>
   <timestamp>Mon Oct 19 17:28:04 2015</timestamp>
   <block>
@@ -74,10 +74,14 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
+    <key>variable_qtgui_range</key>
     <param>
       <key>comment</key>
       <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>1e3</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -85,7 +89,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(24, 229)</value>
+      <value>(248, 24)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
     </param>
     <param>
       <key>_rotation</key>
@@ -96,8 +104,36 @@
       <value>freq_a</value>
     </param>
     <param>
-      <key>value</key>
-      <value>6e3</value>
+      <key>label</key>
+      <value>Frequency A</value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>1e3</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>100</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>samp_rate/2.0</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
     </param>
   </block>
   <block>
@@ -128,10 +164,14 @@
     </param>
   </block>
   <block>
-    <key>blocks_multiply_xx</key>
+    <key>blocks_deinterleave</key>
     <param>
       <key>alias</key>
       <value></value>
+    </param>
+    <param>
+      <key>blocksize</key>
+      <value>1</value>
     </param>
     <param>
       <key>comment</key>
@@ -147,7 +187,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(552, 217)</value>
+      <value>(584, 385)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -155,7 +195,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_multiply_xx_0</value>
+      <value>blocks_deinterleave_0</value>
     </param>
     <param>
       <key>type</key>
@@ -170,8 +210,149 @@
       <value>0</value>
     </param>
     <param>
+      <key>num_streams</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_null_sink</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>bus_conns</key>
+      <value>[[0,],]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(784, 417)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_null_sink_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
       <key>num_inputs</key>
-      <value>2</value>
+      <value>1</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_null_sink</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>bus_conns</key>
+      <value>[[0,],]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(784, 449)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_null_sink_0_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>num_inputs</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_null_sink</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>bus_conns</key>
+      <value>[[0,],]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(784, 489)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_null_sink_0_0_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>num_inputs</key>
+      <value>1</value>
     </param>
     <param>
       <key>vlen</key>
@@ -198,7 +379,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(872, 228)</value>
+      <value>(768, 332)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -277,7 +458,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1056, 214)</value>
+      <value>(1088, 110)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -309,7 +490,7 @@
     </param>
     <param>
       <key>label1</key>
-      <value></value>
+      <value>Original Signal (32k sampling rate)</value>
     </param>
     <param>
       <key>width1</key>
@@ -341,7 +522,7 @@
     </param>
     <param>
       <key>label2</key>
-      <value></value>
+      <value>Down sampled Signal (32k/4=8k sampling rate)</value>
     </param>
     <param>
       <key>width2</key>
@@ -473,7 +654,7 @@
     </param>
     <param>
       <key>nconnections</key>
-      <value>1</value>
+      <value>2</value>
     </param>
     <param>
       <key>showports</key>
@@ -517,7 +698,66 @@
     </param>
     <param>
       <key>ymin</key>
-      <value>-140</value>
+      <value>-80</value>
+    </param>
+  </block>
+  <block>
+    <key>rational_resampler_xxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fbw</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(832, 215)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rational_resampler_xxx_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fff</value>
     </param>
   </block>
   <block>
@@ -584,14 +824,50 @@
     </param>
   </block>
   <connection>
+    <source_block_id>blocks_deinterleave_0</source_block_id>
+    <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_deinterleave_0</source_block_id>
+    <sink_block_id>blocks_null_sink_0</sink_block_id>
+    <source_key>1</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_deinterleave_0</source_block_id>
+    <sink_block_id>blocks_null_sink_0_0</sink_block_id>
+    <source_key>2</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_deinterleave_0</source_block_id>
+    <sink_block_id>blocks_null_sink_0_0_0</sink_block_id>
+    <source_key>3</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_throttle_0</source_block_id>
+    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>rational_resampler_xxx_0</source_block_id>
     <sink_block_id>qtgui_freq_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>signal_A</source_block_id>
+    <sink_block_id>blocks_deinterleave_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>signal_A</source_block_id>
-    <sink_block_id>blocks_multiply_xx_0</sink_block_id>
+    <sink_block_id>qtgui_freq_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
