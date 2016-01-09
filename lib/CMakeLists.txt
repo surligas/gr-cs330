@@ -24,9 +24,13 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND cs330_sources
-)
+    complex_clamp_impl.cc
+    convolutional_encoder_impl.cc
+    constellation_mapping_impl.cc
+    constellation_demodulation_impl.cc
+    ofdm_subcarrier_allocator_impl.cc
+    ofdm_demodulator_impl.cc )
 
 set(cs330_sources "${cs330_sources}" PARENT_SCOPE)
 if(NOT cs330_sources)
@@ -52,27 +56,3 @@ install(TARGETS gnuradio-cs330
     ARCHIVE DESTINATION lib${LIB_SUFFIX} # .lib file
     RUNTIME DESTINATION bin              # .dll file
 )
-
-########################################################################
-# Build and register unit test
-########################################################################
-include(GrTest)
-
-include_directories(${CPPUNIT_INCLUDE_DIRS})
-
-list(APPEND test_cs330_sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_cs330.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/qa_cs330.cc
-)
-
-add_executable(test-cs330 ${test_cs330_sources})
-
-target_link_libraries(
-  test-cs330
-  ${GNURADIO_RUNTIME_LIBRARIES}
-  ${Boost_LIBRARIES}
-  ${CPPUNIT_LIBRARIES}
-  gnuradio-cs330
-)
-
-GR_ADD_TEST(test_cs330 test-cs330)

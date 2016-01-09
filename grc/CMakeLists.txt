@@ -16,7 +16,11 @@
 # along with GNU Radio; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
-
 install(FILES
-    DESTINATION share/gnuradio/grc/blocks
+    cs330_complex_clamp.xml
+    cs330_convolutional_encoder.xml
+    cs330_constellation_mapping.xml
+    cs330_constellation_demodulation.xml
+    cs330_ofdm_subcarrier_allocator.xml
+    cs330_ofdm_demodulator.xml DESTINATION share/gnuradio/grc/blocks
 )

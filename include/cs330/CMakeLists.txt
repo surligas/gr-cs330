@@ -22,5 +22,10 @@
 ########################################################################
 install(FILES
     api.h
-    DESTINATION include/cs330
+    complex_clamp.h
+    convolutional_encoder.h
+    constellation_mapping.h
+    constellation_demodulation.h
+    ofdm_subcarrier_allocator.h
+    ofdm_demodulator.h DESTINATION include/cs330
 )
