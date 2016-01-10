@@ -14,6 +14,10 @@
 #include "cs330/constellation_demodulation.h"
 #include "cs330/ofdm_subcarrier_allocator.h"
 #include "cs330/ofdm_demodulator.h"
+#include "cs330/hamming_encoder.h"
+#include "cs330/hamming_decoder.h"
+#include "cs330/block_interleaver.h"
+#include "cs330/block_deinterleaver.h"
 %}
 
 %include "cs330/complex_clamp.h"
@@ -28,3 +32,11 @@ GR_SWIG_BLOCK_MAGIC2(cs330, constellation_demodulation);
 GR_SWIG_BLOCK_MAGIC2(cs330, ofdm_subcarrier_allocator);
 %include "cs330/ofdm_demodulator.h"
 GR_SWIG_BLOCK_MAGIC2(cs330, ofdm_demodulator);
+%include "cs330/hamming_encoder.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, hamming_encoder);
+%include "cs330/hamming_decoder.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, hamming_decoder);
+%include "cs330/block_interleaver.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, block_interleaver);
+%include "cs330/block_deinterleaver.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, block_deinterleaver);

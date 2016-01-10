@@ -27,5 +27,9 @@ install(FILES
     constellation_mapping.h
     constellation_demodulation.h
     ofdm_subcarrier_allocator.h
-    ofdm_demodulator.h DESTINATION include/cs330
+    ofdm_demodulator.h
+    hamming_encoder.h
+    hamming_decoder.h
+    block_interleaver.h
+    block_deinterleaver.h DESTINATION include/cs330
 )
