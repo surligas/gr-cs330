@@ -1,15 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.9'?>
+<?grc format='1' created='3.7.10'?>
 <flow_graph>
   <timestamp>Fri Jan  8 21:46:18 2016</timestamp>
   <block>
     <key>options</key>
     <param>
       <key>author</key>
-      <value></value>
-    </param>
-    <param>
-      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -45,6 +41,10 @@
       <value>qt_gui</value>
     </param>
     <param>
+      <key>hier_block_src_path</key>
+      <value>.:</value>
+    </param>
+    <param>
       <key>id</key>
       <value>debug_without_fec</value>
     </param>
@@ -53,8 +53,16 @@
       <value>0</value>
     </param>
     <param>
+      <key>qt_qss_theme</key>
+      <value></value>
+    </param>
+    <param>
       <key>realtime_scheduling</key>
       <value></value>
+    </param>
+    <param>
+      <key>run_command</key>
+      <value>{python} -u {filename}</value>
     </param>
     <param>
       <key>run_options</key>
@@ -287,7 +295,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(744, 626)</value>
+      <value>(856, 628)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -296,6 +304,49 @@
     <param>
       <key>id</key>
       <value>blocks_pack_k_bits_bb_0</value>
+    </param>
+    <param>
+      <key>k</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_pack_k_bits_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(736, 140)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_pack_k_bits_bb_0_0</value>
     </param>
     <param>
       <key>k</key>
@@ -487,7 +538,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(744, 130)</value>
+      <value>(568, 140)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -496,6 +547,49 @@
     <param>
       <key>id</key>
       <value>blocks_unpack_k_bits_bb_0</value>
+    </param>
+    <param>
+      <key>k</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_unpack_k_bits_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(704, 628)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_unpack_k_bits_bb_0_0</value>
     </param>
     <param>
       <key>k</key>
@@ -606,6 +700,57 @@
     <param>
       <key>num_items</key>
       <value>48</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_vector_to_stream</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(280, 604)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_vector_to_stream_0_1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num_items</key>
+      <value>fft_size</value>
     </param>
     <param>
       <key>vlen</key>
@@ -773,7 +918,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(584, 530)</value>
+      <value>(728, 520)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -859,7 +1004,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(936, 634)</value>
+      <value>(1000, 632)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -973,7 +1118,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(352, 490)</value>
+      <value>(344, 480)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1064,7 +1209,7 @@
     </param>
     <param>
       <key>label1</key>
-      <value>Transmitted</value>
+      <value>CFO Impact</value>
     </param>
     <param>
       <key>marker1</key>
@@ -1112,7 +1257,7 @@
     </param>
     <param>
       <key>label2</key>
-      <value>Received</value>
+      <value>CFO Corrected</value>
     </param>
     <param>
       <key>marker2</key>
@@ -1379,7 +1524,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1088, 618)</value>
+      <value>(1152, 623)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1826,6 +1971,12 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_pack_k_bits_bb_0_0</source_block_id>
+    <sink_block_id>cs330_constellation_mapping_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_stream_to_vector_0</source_block_id>
     <sink_block_id>cs330_ofdm_subcarrier_allocator_0</sink_block_id>
     <source_key>0</source_key>
@@ -1851,19 +2002,19 @@
   </connection>
   <connection>
     <source_block_id>blocks_unpack_k_bits_bb_0</source_block_id>
-    <sink_block_id>cs330_constellation_mapping_0</sink_block_id>
+    <sink_block_id>blocks_pack_k_bits_bb_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_unpack_k_bits_bb_0_0</source_block_id>
+    <sink_block_id>blocks_pack_k_bits_bb_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_vector_to_stream_0</source_block_id>
     <sink_block_id>channels_cfo_model_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_vector_to_stream_0</source_block_id>
-    <sink_block_id>qtgui_const_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1880,6 +2031,12 @@
     <sink_key>1</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_vector_to_stream_0_1</source_block_id>
+    <sink_block_id>qtgui_const_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>channels_cfo_model_0</source_block_id>
     <sink_block_id>blocks_stream_to_vector_0_0</sink_block_id>
     <source_key>0</source_key>
@@ -1887,7 +2044,7 @@
   </connection>
   <connection>
     <source_block_id>cs330_constellation_demodulation_0</source_block_id>
-    <sink_block_id>blocks_pack_k_bits_bb_0</sink_block_id>
+    <sink_block_id>blocks_unpack_k_bits_bb_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1924,6 +2081,12 @@
   <connection>
     <source_block_id>fft_vxx_0</source_block_id>
     <sink_block_id>blocks_vector_to_stream_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>fft_vxx_0_0</source_block_id>
+    <sink_block_id>blocks_vector_to_stream_0_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

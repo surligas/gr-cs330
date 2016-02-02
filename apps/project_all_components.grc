@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.8'?>
+<?grc format='1' created='3.7.10'?>
 <flow_graph>
   <timestamp>Sat Jan  9 19:28:41 2016</timestamp>
   <block>
@@ -41,6 +41,10 @@
       <value>qt_gui</value>
     </param>
     <param>
+      <key>hier_block_src_path</key>
+      <value>.:</value>
+    </param>
+    <param>
       <key>id</key>
       <value>project_all_components</value>
     </param>
@@ -49,8 +53,16 @@
       <value>0</value>
     </param>
     <param>
+      <key>qt_qss_theme</key>
+      <value></value>
+    </param>
+    <param>
       <key>realtime_scheduling</key>
       <value></value>
+    </param>
+    <param>
+      <key>run_command</key>
+      <value>{python} -u {filename}</value>
     </param>
     <param>
       <key>run_options</key>
@@ -663,6 +675,49 @@
     </param>
   </block>
   <block>
+    <key>blocks_pack_k_bits_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(704, 236)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_pack_k_bits_bb_0_0</value>
+    </param>
+    <param>
+      <key>k</key>
+      <value>mod_order</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
     <key>blocks_pdu_to_tagged_stream</key>
     <param>
       <key>alias</key>
@@ -1082,19 +1137,19 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1336, 156)</value>
+      <value>(1032, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
-      <value>blocks_unpack_k_bits_bb_0</value>
+      <value>blocks_unpack_k_bits_bb_0_0</value>
     </param>
     <param>
       <key>k</key>
-      <value>mod_order</value>
+      <value>8</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1543,6 +1598,10 @@
       <value>fec_async_decoder_0</value>
     </param>
     <param>
+      <key>mtu</key>
+      <value>1500</value>
+    </param>
+    <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
@@ -1587,7 +1646,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(792, 856)</value>
+      <value>(760, 864)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2566,8 +2625,14 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_pack_k_bits_bb_0_0</source_block_id>
+    <sink_block_id>cs330_constellation_mapping_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0</source_block_id>
-    <sink_block_id>blocks_unpack_k_bits_bb_0</sink_block_id>
+    <sink_block_id>blocks_unpack_k_bits_bb_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2620,8 +2685,8 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_unpack_k_bits_bb_0</source_block_id>
-    <sink_block_id>cs330_constellation_mapping_0</sink_block_id>
+    <source_block_id>blocks_unpack_k_bits_bb_0_0</source_block_id>
+    <sink_block_id>blocks_pack_k_bits_bb_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
