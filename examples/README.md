@@ -12,6 +12,8 @@ station and listen to the music. Several visuallizing blocks help you to
 undestand what is going on. Propably you will not have access to a SDR hardware
 device to capture radio signals. Don't worry! We did that for you. 
 Download a signal capture from this [link](https://drive.google.com/open?id=0B2PEM30YcjHXYU5zaFZaQVNjeEk)
+* `quantization.grc`: See how the quantization noise changes with respect to
+the quantization resolution and frequency
 
 # Captured Signal files
 All captured signal files will have the following naming convention:
