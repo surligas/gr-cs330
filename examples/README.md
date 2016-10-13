@@ -14,6 +14,8 @@ device to capture radio signals. Don't worry! We did that for you.
 Download a signal capture from this [link](https://drive.google.com/open?id=0B2PEM30YcjHXYU5zaFZaQVNjeEk)
 * `quantization.grc`: See how the quantization noise changes with respect to
 the quantization resolution and frequency
+* `basic_filtering.grc`: This example provides an example to start explore the parameters of various filters.
+* `simple_audio_filtering.grc`: A very simple audable example to get familiar with the effects of a filter. You can play also with the transition width.
 
 # Captured Signal files
 All captured signal files will have the following naming convention:

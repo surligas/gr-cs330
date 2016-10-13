@@ -400,7 +400,7 @@ use the File Source block to read the samples!</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>file</key>
@@ -1546,7 +1546,7 @@ use the File Source block to read the samples!</value>
     </param>
     <param>
       <key>ctrlpanel</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>affinity</key>
@@ -1834,7 +1834,7 @@ use the File Source block to read the samples!</value>
     </param>
     <param>
       <key>size</key>
-      <value>4096</value>
+      <value>2*8192</value>
     </param>
     <param>
       <key>srate</key>
@@ -3466,7 +3466,7 @@ use the File Source block to read the samples!</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
