@@ -687,16 +687,17 @@ namespace gr {
   namespace cs330 {
 
     constellation_demodulation::sptr
-    constellation_demodulation::make(size_t K)
+    constellation_demodulation::make(size_t K, bool is_psk)
     {
       return gnuradio::get_initial_sptr
-        (new constellation_demodulation_impl(K));
+        (new constellation_demodulation_impl(K, is_psk));
     }
 
     /*
      * The private constructor
      */
-    constellation_demodulation_impl::constellation_demodulation_impl(size_t K)
+    constellation_demodulation_impl::constellation_demodulation_impl(size_t K,
+								     bool is_psk)
       : gr::sync_block("constellation_demodulation",
               gr::io_signature::make(1, 1, sizeof(gr_complex)),
               gr::io_signature::make2(2, 2, sizeof(uint8_t), sizeof(float)))

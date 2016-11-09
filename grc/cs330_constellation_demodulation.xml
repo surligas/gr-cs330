@@ -4,7 +4,7 @@
   <key>cs330_constellation_demodulation</key>
   <category>cs330</category>
   <import>import cs330</import>
-  <make>cs330.constellation_demodulation($K)</make>
+  <make>cs330.constellation_demodulation($K, $is_psk)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
@@ -14,6 +14,20 @@
     <name>K</name>
     <key>K</key>
     <type>int</type>
+  </param>
+  
+  <param>
+    <name>Modulation Type</name>
+    <key>is_psk</key>
+    <type>enum</type>
+    <option>
+		<name>PSK</name>
+		<key>True</key>
+	</option>
+	<option>
+		<name>QAM</name>
+		<key>False</key>
+	</option>
   </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:

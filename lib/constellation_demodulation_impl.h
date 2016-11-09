@@ -690,7 +690,7 @@ namespace gr {
       // Nothing to declare in this block.
 
      public:
-      constellation_demodulation_impl(size_t K);
+      constellation_demodulation_impl(size_t K, bool is_psk);
       ~constellation_demodulation_impl();
 
       // Where all the action really happens
