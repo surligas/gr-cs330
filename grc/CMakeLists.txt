@@ -26,5 +26,6 @@ install(FILES
     cs330_hamming_encoder.xml
     cs330_hamming_decoder.xml
     cs330_block_interleaver.xml
-    cs330_block_deinterleaver.xml DESTINATION share/gnuradio/grc/blocks
+    cs330_block_deinterleaver.xml
+    cs330_horizontal_sum_c.xml DESTINATION share/gnuradio/grc/blocks
 )

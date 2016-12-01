@@ -18,6 +18,7 @@
 #include "cs330/hamming_decoder.h"
 #include "cs330/block_interleaver.h"
 #include "cs330/block_deinterleaver.h"
+#include "cs330/horizontal_sum_c.h"
 %}
 
 %include "cs330/complex_clamp.h"
@@ -40,3 +41,5 @@ GR_SWIG_BLOCK_MAGIC2(cs330, hamming_decoder);
 GR_SWIG_BLOCK_MAGIC2(cs330, block_interleaver);
 %include "cs330/block_deinterleaver.h"
 GR_SWIG_BLOCK_MAGIC2(cs330, block_deinterleaver);
+%include "cs330/horizontal_sum_c.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, horizontal_sum_c);

@@ -31,5 +31,6 @@ install(FILES
     hamming_encoder.h
     hamming_decoder.h
     block_interleaver.h
-    block_deinterleaver.h DESTINATION include/cs330
+    block_deinterleaver.h
+    horizontal_sum_c.h DESTINATION include/cs330
 )

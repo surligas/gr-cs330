@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<block>
+  <name>horizontal_sum_c</name>
+  <key>cs330_horizontal_sum_c</key>
+  <category>[cs330]</category>
+  <import>import cs330</import>
+  <make>cs330.horizontal_sum_c($scale, $vlen)</make>
+  <!--  The callback tag allows to set at runtime new values to block parameters
+        if the block supports it. When a variable value changes, for example
+        when you move a GUI slider variable, GRC automatically calls the method
+        specified int the callback tag. For this block, it will call the 
+        set_scale() method with the new value of scale.
+        
+        NOTE: the $var syntax just substitute the value of the varible with
+        name var
+  -->
+  <callback>set_scale($scale)</callback>
+
+  <param>
+    <name>Scaling Factor</name>
+    <key>scale</key>
+    <!-- The default value  -->
+    <value>1.0</value>
+    <type>real</type>
+  </param>
+  
+  <param>
+    <name>Vector Length</name>
+    <key>vlen</key>
+    <!-- The default value  -->
+    <value>4</value>
+    <type>int</type>
+  </param>
+
+  <!-- The input port in this block accepts items that are a vector of complex
+       numbers. The vector size can be specified using the vlen tag.
+  -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>$vlen</vlen>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>

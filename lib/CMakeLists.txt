@@ -34,7 +34,8 @@ list(APPEND cs330_sources
     hamming_encoder_impl.cc
     hamming_decoder_impl.cc
     block_interleaver_impl.cc
-    block_deinterleaver_impl.cc )
+    block_deinterleaver_impl.cc
+    horizontal_sum_c_impl.cc )
 
 set(cs330_sources "${cs330_sources}" PARENT_SCOPE)
 if(NOT cs330_sources)

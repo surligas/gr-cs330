@@ -16,6 +16,7 @@ Download a signal capture from this [link](https://drive.google.com/open?id=0B2P
 the quantization resolution and frequency
 * `basic_filtering.grc`: This example provides an example to start explore the parameters of various filters.
 * `simple_audio_filtering.grc`: A very simple audible example to get familiar with the effects of a filter. You can play also with the transition width.
+* `horizonta_sum.grc`: A simple example using the horizontal sub block that we created during a lecture.
 
 # Captured Signal files
 All captured signal files will have the following naming convention:
