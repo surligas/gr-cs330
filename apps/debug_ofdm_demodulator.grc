@@ -332,6 +332,57 @@ constellation point carries</value>
     </param>
   </block>
   <block>
+    <key>blocks_multiply_const_vxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value>Normalize the power scale up that FFTW introduces</value>
+    </param>
+    <param>
+      <key>const</key>
+      <value>[1.0/fft_size]*fft_size</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(456, 548)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_multiply_const_vxx_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>fft_size</value>
+    </param>
+  </block>
+  <block>
     <key>blocks_packed_to_unpacked_xx</key>
     <param>
       <key>bits_per_chunk</key>
@@ -563,7 +614,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(536, 424)</value>
+      <value>(696, 420)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -614,7 +665,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(648, 560)</value>
+      <value>(816, 556)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -665,7 +716,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(480, 568)</value>
+      <value>(648, 560)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -936,7 +987,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(888, 544)</value>
+      <value>(1016, 544)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1303,7 +1354,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(880, 408)</value>
+      <value>(992, 404)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1561,6 +1612,12 @@ constellation point carries</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
+    <sink_block_id>cs330_ofdm_demodulator_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_packed_to_unpacked_xx_0</source_block_id>
     <sink_block_id>digital_chunks_to_symbols_xx_0</sink_block_id>
     <source_key>0</source_key>
@@ -1634,7 +1691,7 @@ constellation point carries</value>
   </connection>
   <connection>
     <source_block_id>fft_vxx_0_0</source_block_id>
-    <sink_block_id>cs330_ofdm_demodulator_0</sink_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
