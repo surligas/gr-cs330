@@ -292,7 +292,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 248)</value>
+      <value>(136, 256)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -748,7 +748,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>shift</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>window</key>
