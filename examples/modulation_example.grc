@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.10'?>
+<?grc format='1' created='3.7.11'?>
 <flow_graph>
   <timestamp>Wed Nov  2 13:18:57 2016</timestamp>
   <block>
@@ -695,7 +695,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>dimension</key>
-      <value>2</value>
+      <value>1</value>
     </param>
     <param>
       <key>_enabled</key>
