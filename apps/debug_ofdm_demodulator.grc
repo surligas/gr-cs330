@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.10'?>
+<?grc format='1' created='3.7.11'?>
 <flow_graph>
   <timestamp>Fri Jan  8 19:45:36 2016</timestamp>
   <block>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>debug_allocator</value>
+      <value>debug_ofdm_demodulator</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -457,7 +457,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 272)</value>
+      <value>(996, 269)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -952,7 +952,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>shift</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>window</key>
