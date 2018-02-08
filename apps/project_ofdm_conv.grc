@@ -93,7 +93,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(487, 1105)</value>
+      <value>(443, 1105)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -177,7 +177,7 @@ change and run the flowgraph
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(647, 14)</value>
+      <value>(807, 14)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -189,7 +189,7 @@ change and run the flowgraph
     </param>
     <param>
       <key>value</key>
-      <value>0</value>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -360,7 +360,7 @@ change and run the flowgraph
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(669, 1101)</value>
+      <value>(581, 1101)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -455,6 +455,33 @@ change and run the flowgraph
     </param>
     <param>
       <key>_coordinate</key>
+      <value>(640, 14)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>norm_factor</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>[1, 1/math.sqrt(2), 1/math.sqrt(10), 1/math.sqrt(42)]</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
       <value>(116, 1105)</value>
     </param>
     <param>
@@ -518,33 +545,6 @@ change and run the flowgraph
     <param>
       <key>id</key>
       <value>samp_rate</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>32e3</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(567, 1170)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>throttle_rate</value>
     </param>
     <param>
       <key>value</key>
@@ -713,7 +713,7 @@ change and run the flowgraph
     </param>
     <param>
       <key>win_size</key>
-      <value>50000</value>
+      <value>10000</value>
     </param>
   </block>
   <block>
@@ -816,6 +816,57 @@ change and run the flowgraph
     <param>
       <key>vlen</key>
       <value>fft_size</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_multiply_const_vxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>const</key>
+      <value>norm_factor[curr_constellation]</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1134, 290)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_multiply_const_vxx_0_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -991,11 +1042,11 @@ change and run the flowgraph
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1316, 283)</value>
+      <value>(1352, 181)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>180</value>
+      <value>0</value>
     </param>
     <param>
       <key>id</key>
@@ -1810,7 +1861,7 @@ change and run the flowgraph
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1127, 283)</value>
+      <value>(1316, 283)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2083,6 +2134,37 @@ change and run the flowgraph
     <param>
       <key>window</key>
       <value></value>
+    </param>
+  </block>
+  <block>
+    <key>import</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(269, 21)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>import_0</value>
+    </param>
+    <param>
+      <key>import</key>
+      <value>import math</value>
     </param>
   </block>
   <block>
@@ -2710,6 +2792,12 @@ change and run the flowgraph
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_multiply_const_vxx_0_0</source_block_id>
+    <sink_block_id>blocks_stream_to_vector_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0</source_block_id>
     <sink_block_id>blocks_repack_bits_bb_0</sink_block_id>
     <source_key>0</source_key>
@@ -2849,7 +2937,7 @@ change and run the flowgraph
   </connection>
   <connection>
     <source_block_id>digital_chunks_to_symbols_xx_0</source_block_id>
-    <sink_block_id>blocks_stream_to_vector_0</sink_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
