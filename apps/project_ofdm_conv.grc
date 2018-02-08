@@ -109,6 +109,90 @@
     </param>
   </block>
   <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(363, 14)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>bits_per_symbol</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>[1,2]</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(494, 14)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>constellation</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>[(-1,1),(-1-1j,-1+1j,1-1j,1+1j)]</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value>Choose the current constellation - only this is needed
+change and run the flowgraph
+0 -&gt; BPSK
+1 -&gt; QPSK</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(647, 14)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>curr_constellation</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
     <key>variable_cc_decoder_def</key>
     <param>
       <key>padding</key>
@@ -258,33 +342,6 @@
     <param>
       <key>value</key>
       <value>7</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(574, 1105)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>mod_order</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>1</value>
     </param>
   </block>
   <block>
@@ -569,7 +626,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(145, 120)</value>
+      <value>(145, 163)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -656,7 +713,7 @@
     </param>
     <param>
       <key>win_size</key>
-      <value>10000</value>
+      <value>50000</value>
     </param>
   </block>
   <block>
@@ -828,7 +885,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1141, 145)</value>
+      <value>(1141, 189)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -910,6 +967,65 @@
     </param>
     <param>
       <key>l</key>
+      <value>bits_per_symbol[curr_constellation]</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>endianness</key>
+      <value>gr.GR_LSB_FIRST</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1316, 283)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_repack_bits_bb_0</value>
+    </param>
+    <param>
+      <key>len_tag_key</key>
+      <value>pkt_len</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>align_output</key>
+      <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_repack_bits_bb</key>
+    <param>
+      <key>k</key>
+      <value>bits_per_symbol[curr_constellation]</value>
+    </param>
+    <param>
+      <key>l</key>
       <value>1</value>
     </param>
     <param>
@@ -934,7 +1050,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1301, 283)</value>
+      <value>(1200, 800)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -942,7 +1058,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_repack_bits_bb_0</value>
+      <value>blocks_repack_bits_bb_0_0</value>
     </param>
     <param>
       <key>len_tag_key</key>
@@ -981,7 +1097,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(480, 138)</value>
+      <value>(480, 181)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1138,7 +1254,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(720, 145)</value>
+      <value>(720, 189)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1232,7 +1348,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(312, 145)</value>
+      <value>(312, 189)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1365,7 +1481,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(145, 32)</value>
+      <value>(145, 76)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1538,7 +1654,7 @@
     </param>
     <param>
       <key>K</key>
-      <value>mod_order</value>
+      <value>bits_per_symbol[curr_constellation]</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1573,7 +1689,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(930, 152)</value>
+      <value>(923, 196)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1726,7 +1842,7 @@
     </param>
     <param>
       <key>symbol_table</key>
-      <value>(-1,1)</value>
+      <value>constellation[curr_constellation]</value>
     </param>
   </block>
   <block>
@@ -1753,7 +1869,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1112, 800)</value>
+      <value>(989, 800)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2618,6 +2734,12 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_repack_bits_bb_0_0</source_block_id>
+    <sink_block_id>digital_chunks_to_symbols_xx_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_stream_to_tagged_stream_0_0</source_block_id>
     <sink_block_id>blks2_error_rate_0</sink_block_id>
     <source_key>0</source_key>
@@ -2697,7 +2819,7 @@
   </connection>
   <connection>
     <source_block_id>cs330_constellation_demodulation_0</source_block_id>
-    <sink_block_id>digital_chunks_to_symbols_xx_0_0</sink_block_id>
+    <sink_block_id>blocks_repack_bits_bb_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
