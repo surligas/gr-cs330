@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.8'?>
+<?grc format='1' created='3.7.11'?>
 <flow_graph>
   <timestamp>Fri Jan  8 15:03:44 2016</timestamp>
   <block>
@@ -41,6 +41,10 @@
       <value>qt_gui</value>
     </param>
     <param>
+      <key>hier_block_src_path</key>
+      <value>.:</value>
+    </param>
+    <param>
       <key>id</key>
       <value>test_fec</value>
     </param>
@@ -49,8 +53,16 @@
       <value>0</value>
     </param>
     <param>
+      <key>qt_qss_theme</key>
+      <value></value>
+    </param>
+    <param>
       <key>realtime_scheduling</key>
       <value></value>
+    </param>
+    <param>
+      <key>run_command</key>
+      <value>{python} -u {filename}</value>
     </param>
     <param>
       <key>run_options</key>
@@ -218,7 +230,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>[91, 121]</value>
+      <value>[109, 79]</value>
     </param>
   </block>
   <block>
@@ -295,7 +307,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(88, 74)</value>
+      <value>(87, 83)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -311,7 +323,7 @@
     </param>
     <param>
       <key>max</key>
-      <value>255</value>
+      <value>256</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -335,7 +347,11 @@
     </param>
   </block>
   <block>
-    <key>blocks_char_to_float</key>
+    <key>blks2_error_rate</key>
+    <param>
+      <key>bits_per_symbol</key>
+      <value>8</value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
@@ -354,7 +370,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(952, 426)</value>
+      <value>(647, 600)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -362,7 +378,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_char_to_float_0_0_0_0</value>
+      <value>blks2_error_rate_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -373,12 +389,12 @@
       <value>0</value>
     </param>
     <param>
-      <key>scale</key>
-      <value>1</value>
+      <key>type</key>
+      <value>'BER'</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
+      <key>win_size</key>
+      <value>10000</value>
     </param>
   </block>
   <block>
@@ -401,62 +417,15 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(568, 250)</value>
+      <value>(625, 174)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
       <value>blocks_char_to_float_0_1</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>scale</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_char_to_float</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(488, 324)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_char_to_float_0_1_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -542,11 +511,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(944, 338)</value>
+      <value>(632, 261)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>180</value>
+      <value>0</value>
     </param>
     <param>
       <key>id</key>
@@ -601,7 +570,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(800, 162)</value>
+      <value>(1018, 167)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -750,11 +719,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 250)</value>
+      <value>(392, 174)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
@@ -833,6 +802,84 @@
     </param>
   </block>
   <block>
+    <key>blocks_uchar_to_float</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(829, 269)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_uchar_to_float_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_uchar_to_float</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(669, 480)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_uchar_to_float_0_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
     <key>cs330_convolutional_encoder</key>
     <param>
       <key>alias</key>
@@ -891,7 +938,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(664, 170)</value>
+      <value>(836, 174)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -938,7 +985,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(952, 250)</value>
+      <value>(196, 254)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -947,6 +994,10 @@
     <param>
       <key>id</key>
       <value>fec_async_decoder_0</value>
+    </param>
+    <param>
+      <key>mtu</key>
+      <value>1500</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -963,57 +1014,6 @@
     <param>
       <key>rev_pack</key>
       <value>True</value>
-    </param>
-  </block>
-  <block>
-    <key>fec_ber_bf</key>
-    <param>
-      <key>berlimit</key>
-      <value>-7.0</value>
-    </param>
-    <param>
-      <key>berminerrors</key>
-      <value>100</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(680, 714)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fec_ber_bf_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>test_mode</key>
-      <value>False</value>
     </param>
   </block>
   <block>
@@ -1044,7 +1044,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1000, 698)</value>
+      <value>(1054, 592)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1244,14 +1244,18 @@
     </param>
     <param>
       <key>update_time</key>
-      <value>0.10</value>
+      <value>0.0001</value>
     </param>
   </block>
   <block>
     <key>qtgui_time_sink_x</key>
     <param>
       <key>autoscale</key>
-      <value>False</value>
+      <value>True</value>
+    </param>
+    <param>
+      <key>axislabels</key>
+      <value>True</value>
     </param>
     <param>
       <key>alias</key>
@@ -1279,7 +1283,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(712, 570)</value>
+      <value>(1054, 352)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1613,8 +1617,8 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_char_to_float_0_0_0_0</source_block_id>
-    <sink_block_id>qtgui_time_sink_x_0</sink_block_id>
+    <source_block_id>blks2_error_rate_0</source_block_id>
+    <sink_block_id>qtgui_number_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1625,12 +1629,6 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_char_to_float_0_1_0</source_block_id>
-    <sink_block_id>qtgui_time_sink_x_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0</source_block_id>
     <sink_block_id>blocks_repack_bits_bb_0</sink_block_id>
     <source_key>0</source_key>
@@ -1638,13 +1636,13 @@
   </connection>
   <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0_0</source_block_id>
-    <sink_block_id>blocks_char_to_float_0_0_0_0</sink_block_id>
+    <sink_block_id>blks2_error_rate_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0_0</source_block_id>
-    <sink_block_id>fec_ber_bf_0</sink_block_id>
+    <sink_block_id>blocks_uchar_to_float_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1656,9 +1654,9 @@
   </connection>
   <connection>
     <source_block_id>blocks_stream_to_tagged_stream_0_0</source_block_id>
-    <sink_block_id>blocks_char_to_float_0_1_0</sink_block_id>
+    <sink_block_id>blks2_error_rate_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>0</sink_key>
+    <sink_key>1</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_stream_to_tagged_stream_0_0</source_block_id>
@@ -1668,9 +1666,9 @@
   </connection>
   <connection>
     <source_block_id>blocks_stream_to_tagged_stream_0_0</source_block_id>
-    <sink_block_id>fec_ber_bf_0</sink_block_id>
+    <sink_block_id>blocks_uchar_to_float_0_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>1</sink_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_tagged_stream_to_pdu_0</source_block_id>
@@ -1691,6 +1689,18 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_uchar_to_float_0</source_block_id>
+    <sink_block_id>qtgui_time_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_uchar_to_float_0_0</source_block_id>
+    <sink_block_id>qtgui_time_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
     <source_block_id>cs330_convolutional_encoder_0</source_block_id>
     <sink_block_id>blocks_pdu_to_tagged_stream_0</sink_block_id>
     <source_key>out</source_key>
@@ -1707,11 +1717,5 @@
     <sink_block_id>blocks_pdu_to_tagged_stream_0_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>pdus</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>fec_ber_bf_0</source_block_id>
-    <sink_block_id>qtgui_number_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
   </connection>
 </flow_graph>
