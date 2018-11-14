@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?grc format='1' created='3.7.13'?>
 <flow_graph>
-  <timestamp>Wed Nov  2 13:18:57 2016</timestamp>
+  <timestamp>Tue Nov 13 15:17:34 2018</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -90,188 +90,6 @@
     </param>
   </block>
   <block>
-    <key>variable_qtgui_range</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>0.0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(312, 40)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>cfo</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Carrier Frequency Offset (Hz)</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>10</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>100e3</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>counter_slider</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value>The constellation points of specific modulation.
-For example BPSK is [-1, 1]</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(616, 32)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>constellation</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>[-1+0j, +1+0j]</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value>The number of bits that each 
-constellation point carries</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(904, 32)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>mod_order</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>variable_qtgui_range</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>0.0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(184, 40)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>noise</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Noise Amplitude</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>0.01</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>counter_slider</value>
-    </param>
-  </block>
-  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -283,7 +101,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 160)</value>
+      <value>(7, 115)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -299,11 +117,7 @@ constellation point carries</value>
     </param>
   </block>
   <block>
-    <key>analog_noise_source_x</key>
-    <param>
-      <key>amp</key>
-      <value>noise</value>
-    </param>
+    <key>analog_frequency_modulator_fc</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -322,7 +136,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(352, 424)</value>
+      <value>(1045, 211)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -330,7 +144,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>id</key>
-      <value>analog_noise_source_x_0</value>
+      <value>analog_frequency_modulator_fc_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -341,16 +155,8 @@ constellation point carries</value>
       <value>0</value>
     </param>
     <param>
-      <key>noise_type</key>
-      <value>analog.GR_GAUSSIAN</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0</value>
+      <key>sensitivity</key>
+      <value>0.6</value>
     </param>
   </block>
   <block>
@@ -373,7 +179,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(16, 264)</value>
+      <value>(199, 187)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -389,7 +195,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>max</key>
-      <value>255</value>
+      <value>256</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -413,164 +219,46 @@ constellation point carries</value>
     </param>
   </block>
   <block>
-    <key>analog_sig_source_x</key>
+    <key>blocks_char_to_float</key>
     <param>
-      <key>amp</key>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(885, 211)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_char_to_float_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>scale</key>
       <value>1</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>freq</key>
-      <value>cfo</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(512, 560)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>analog_sig_source_x_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>offset</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>waveform</key>
-      <value>analog.GR_COS_WAVE</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_add_xx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(544, 296)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_add_xx_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>num_inputs</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_multiply_xx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(656, 312)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_multiply_xx_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>num_inputs</key>
-      <value>2</value>
     </param>
     <param>
       <key>vlen</key>
@@ -581,7 +269,7 @@ constellation point carries</value>
     <key>blocks_packed_to_unpacked_xx</key>
     <param>
       <key>bits_per_chunk</key>
-      <value>mod_order</value>
+      <value>2</value>
     </param>
     <param>
       <key>alias</key>
@@ -605,7 +293,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 280)</value>
+      <value>(406, 203)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -633,7 +321,7 @@ constellation point carries</value>
     </param>
   </block>
   <block>
-    <key>blocks_throttle</key>
+    <key>blocks_repeat</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -652,7 +340,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(784, 320)</value>
+      <value>(734, 211)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -660,11 +348,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>id</key>
-      <value>blocks_throttle_0</value>
+      <value>blocks_repeat_0</value>
     </param>
     <param>
-      <key>ignoretag</key>
-      <value>True</value>
+      <key>interp</key>
+      <value>64</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -675,12 +363,8 @@ constellation point carries</value>
       <value>0</value>
     </param>
     <param>
-      <key>samples_per_second</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
       <key>type</key>
-      <value>complex</value>
+      <value>byte</value>
     </param>
     <param>
       <key>vlen</key>
@@ -688,7 +372,7 @@ constellation point carries</value>
     </param>
   </block>
   <block>
-    <key>digital_chunks_to_symbols_xx</key>
+    <key>digital_map_bb</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -702,16 +386,12 @@ constellation point carries</value>
       <value></value>
     </param>
     <param>
-      <key>dimension</key>
-      <value>1</value>
-    </param>
-    <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(352, 280)</value>
+      <value>(606, 211)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -719,11 +399,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>id</key>
-      <value>digital_chunks_to_symbols_xx_0</value>
+      <value>digital_map_bb_0</value>
     </param>
     <param>
-      <key>in_type</key>
-      <value>byte</value>
+      <key>map</key>
+      <value>[-1, 1]</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -733,52 +413,9 @@ constellation point carries</value>
       <key>minoutbuf</key>
       <value>0</value>
     </param>
-    <param>
-      <key>num_ports</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>out_type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>symbol_table</key>
-      <value>constellation</value>
-    </param>
   </block>
   <block>
-    <key>import</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(504, 40)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>import_0</value>
-    </param>
-    <param>
-      <key>import</key>
-      <value>import math</value>
-    </param>
-  </block>
-  <block>
-    <key>qtgui_const_sink_x</key>
+    <key>qtgui_time_sink_x</key>
     <param>
       <key>autoscale</key>
       <value>False</value>
@@ -796,8 +433,16 @@ constellation point carries</value>
       <value></value>
     </param>
     <param>
+      <key>ctrlpanel</key>
+      <value>False</value>
+    </param>
+    <param>
       <key>affinity</key>
       <value></value>
+    </param>
+    <param>
+      <key>entags</key>
+      <value>True</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -805,7 +450,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(992, 312)</value>
+      <value>(1085, 371)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -813,15 +458,15 @@ constellation point carries</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>grid</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>id</key>
-      <value>qtgui_const_sink_x_0</value>
+      <value>qtgui_time_sink_x_0</value>
     </param>
     <param>
       <key>legend</key>
@@ -841,11 +486,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker1</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style1</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width1</key>
@@ -857,7 +502,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color10</key>
-      <value>"red"</value>
+      <value>"blue"</value>
     </param>
     <param>
       <key>label10</key>
@@ -865,11 +510,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker10</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style10</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width10</key>
@@ -889,11 +534,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker2</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style2</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width2</key>
@@ -905,7 +550,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color3</key>
-      <value>"red"</value>
+      <value>"green"</value>
     </param>
     <param>
       <key>label3</key>
@@ -913,11 +558,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker3</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style3</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width3</key>
@@ -929,7 +574,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color4</key>
-      <value>"red"</value>
+      <value>"black"</value>
     </param>
     <param>
       <key>label4</key>
@@ -937,11 +582,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker4</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style4</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width4</key>
@@ -953,7 +598,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color5</key>
-      <value>"red"</value>
+      <value>"cyan"</value>
     </param>
     <param>
       <key>label5</key>
@@ -961,11 +606,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker5</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style5</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width5</key>
@@ -977,7 +622,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color6</key>
-      <value>"red"</value>
+      <value>"magenta"</value>
     </param>
     <param>
       <key>label6</key>
@@ -985,11 +630,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker6</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style6</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width6</key>
@@ -1001,7 +646,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color7</key>
-      <value>"red"</value>
+      <value>"yellow"</value>
     </param>
     <param>
       <key>label7</key>
@@ -1009,11 +654,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker7</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style7</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width7</key>
@@ -1025,7 +670,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color8</key>
-      <value>"red"</value>
+      <value>"dark red"</value>
     </param>
     <param>
       <key>label8</key>
@@ -1033,11 +678,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker8</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style8</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width8</key>
@@ -1049,7 +694,7 @@ constellation point carries</value>
     </param>
     <param>
       <key>color9</key>
-      <value>"red"</value>
+      <value>"dark green"</value>
     </param>
     <param>
       <key>label9</key>
@@ -1057,11 +702,11 @@ constellation point carries</value>
     </param>
     <param>
       <key>marker9</key>
-      <value>0</value>
+      <value>-1</value>
     </param>
     <param>
       <key>style9</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>width9</key>
@@ -1080,7 +725,19 @@ constellation point carries</value>
       <value>1024</value>
     </param>
     <param>
+      <key>srate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>stemplot</key>
+      <value>False</value>
+    </param>
+    <param>
       <key>tr_chan</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>tr_delay</key>
       <value>0</value>
     </param>
     <param>
@@ -1108,27 +765,27 @@ constellation point carries</value>
       <value>0.10</value>
     </param>
     <param>
-      <key>xmax</key>
-      <value>2</value>
+      <key>ylabel</key>
+      <value>Amplitude</value>
     </param>
     <param>
-      <key>xmin</key>
-      <value>-2</value>
+      <key>yunit</key>
+      <value>""</value>
     </param>
     <param>
       <key>ymax</key>
-      <value>2</value>
+      <value>1</value>
     </param>
     <param>
       <key>ymin</key>
-      <value>-2</value>
+      <value>-1</value>
     </param>
   </block>
   <connection>
-    <source_block_id>analog_noise_source_x_0</source_block_id>
-    <sink_block_id>blocks_add_xx_0</sink_block_id>
+    <source_block_id>analog_frequency_modulator_fc_0</source_block_id>
+    <sink_block_id>qtgui_time_sink_x_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>1</sink_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>analog_random_source_x_0</source_block_id>
@@ -1137,38 +794,26 @@ constellation point carries</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>analog_sig_source_x_0</source_block_id>
-    <sink_block_id>blocks_multiply_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_add_xx_0</source_block_id>
-    <sink_block_id>blocks_multiply_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_multiply_xx_0</source_block_id>
-    <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_block_id>blocks_char_to_float_0</source_block_id>
+    <sink_block_id>analog_frequency_modulator_fc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_packed_to_unpacked_xx_0</source_block_id>
-    <sink_block_id>digital_chunks_to_symbols_xx_0</sink_block_id>
+    <sink_block_id>digital_map_bb_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_throttle_0</source_block_id>
-    <sink_block_id>qtgui_const_sink_x_0</sink_block_id>
+    <source_block_id>blocks_repeat_0</source_block_id>
+    <sink_block_id>blocks_char_to_float_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>digital_chunks_to_symbols_xx_0</source_block_id>
-    <sink_block_id>blocks_add_xx_0</sink_block_id>
+    <source_block_id>digital_map_bb_0</source_block_id>
+    <sink_block_id>blocks_repeat_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
