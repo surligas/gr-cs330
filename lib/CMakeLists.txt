@@ -27,15 +27,14 @@ link_directories(${Boost_LIBRARY_DIRS})
 list(APPEND cs330_sources
     complex_clamp_impl.cc
     convolutional_encoder_impl.cc
-    constellation_mapping_impl.cc
-    constellation_demodulation_impl.cc
-    ofdm_subcarrier_allocator_impl.cc
-    ofdm_demodulator_impl.cc
     hamming_encoder_impl.cc
     hamming_decoder_impl.cc
     block_interleaver_impl.cc
     block_deinterleaver_impl.cc
-    horizontal_sum_c_impl.cc )
+    horizontal_sum_c_impl.cc
+    psk_modulator_impl.cc
+    psk_demodulator_impl.cc
+    msg_source_impl.cc )
 
 set(cs330_sources "${cs330_sources}" PARENT_SCOPE)
 if(NOT cs330_sources)

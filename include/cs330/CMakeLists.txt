@@ -26,11 +26,12 @@ install(FILES
     convolutional_encoder.h
     constellation_mapping.h
     constellation_demodulation.h
-    ofdm_subcarrier_allocator.h
-    ofdm_demodulator.h
     hamming_encoder.h
     hamming_decoder.h
     block_interleaver.h
     block_deinterleaver.h
-    horizontal_sum_c.h DESTINATION include/cs330
+    horizontal_sum_c.h
+    psk_modulator.h
+    psk_demodulator.h
+    msg_source.h DESTINATION include/cs330
 )

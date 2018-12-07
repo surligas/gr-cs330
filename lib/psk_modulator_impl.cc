@@ -676,31 +676,97 @@
  * 
  */
 
-#ifndef INCLUDED_CS330_CONSTELLATION_MAPPING_IMPL_H
-#define INCLUDED_CS330_CONSTELLATION_MAPPING_IMPL_H
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
-#include <cs330/constellation_mapping.h>
+#include <gnuradio/io_signature.h>
+#include "psk_modulator_impl.h"
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    class constellation_mapping_impl : public constellation_mapping
-    {
-     private:
-      // Nothing to declare in this block.
+psk_modulator::sptr
+psk_modulator::make (int mod_order, int sync_distance)
+{
+  return gnuradio::get_initial_sptr (
+      new psk_modulator_impl (mod_order, sync_distance));
+}
 
-     public:
-      constellation_mapping_impl(size_t K);
-      ~constellation_mapping_impl();
+/*
+ * The private constructor
+ */
+psk_modulator_impl::psk_modulator_impl (int mod_order, int sync_distance) :
+        gr::sync_block ("psk_modulator",
+        /*
+         * Our block takes as input messages no streams, that's why it
+         * has zero input streams
+         */
+        gr::io_signature::make (0, 0, 0),
+        gr::io_signature::make (1, 1, sizeof(gr_complex))),
+        d_sync_distance(sync_distance),
+        d_max_packet_len(2048),
+        d_sync_marker(0x72),
+        d_remaining(0),
+        d_msg_len(0)
+{
+  /* Register the message input port with name "in" */
+  message_port_register_in(pmt::mp("in"));
+  d_msg_buffer = new uint8_t[d_max_packet_len];
+  d_msg_with_sync_buffer = new uint8_t[d_max_packet_len
+      + (d_max_packet_len / sync_distance + 1)];
+}
 
-      // Where all the action really happens
-      int work(int noutput_items,
-         gr_vector_const_void_star &input_items,
-         gr_vector_void_star &output_items);
-    };
+/*
+ * Our virtual destructor.
+ */
+psk_modulator_impl::~psk_modulator_impl ()
+{
+  delete [] d_msg_buffer;
+  delete [] d_msg_with_sync_buffer;
+}
 
-  } // namespace cs330
-} // namespace gr
+int
+psk_modulator_impl::work (int noutput_items,
+                          gr_vector_const_void_star &input_items,
+                          gr_vector_void_star &output_items)
+{
+  gr_complex *out = (gr_complex *) output_items[0];
 
-#endif /* INCLUDED_CS330_CONSTELLATION_MAPPING_IMPL_H */
+  /* If all of the message bytes have been sent, block waiting for a new message */
+  if(d_remaining == 0) {
+    /* This call will block until a message arrives at the message queue */
+    pmt::pmt_t msg = delete_head_blocking(pmt::mp("in"));
+
+    /* Check if the message fits in the buffer */
+    if(pmt::blob_length(msg) > d_max_packet_len) {
+      /* Do nothing, drop the message and go waiting for the next one */
+      return 0;
+    }
+    else{
+      d_msg_len = pmt::blob_length(msg);
+    }
+    /*
+     * Convert the PMT message to raw bytes and place then at the d_msg_buffer.
+     */
+    memcpy(d_msg_buffer, pmt::blob_data(msg), d_msg_len);
+
+    /*
+     * TODO: Place properly the sync markers at the d_msg_buffer_with_pilots and
+     * set the d_remaining_bytes counter with the resulting number of bytes
+     */
+
+  }
+
+  /*
+   * TODO: Produce the constellation points! Do not forget to decrement properly
+   * the d_remaining_bytes counter
+   */
+  return noutput_items;
+}
+
+} /* namespace cs330 */
+} /* namespace gr */
 

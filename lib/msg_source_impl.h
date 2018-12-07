@@ -676,31 +676,37 @@
  * 
  */
 
-#ifndef INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_IMPL_H
-#define INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_IMPL_H
+#ifndef INCLUDED_CS330_MSG_SOURCE_IMPL_H
+#define INCLUDED_CS330_MSG_SOURCE_IMPL_H
 
-#include <cs330/ofdm_subcarrier_allocator.h>
+#include <cs330/msg_source.h>
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    class ofdm_subcarrier_allocator_impl : public ofdm_subcarrier_allocator
-    {
-     private:
-      // Nothing to declare in this block.
+class msg_source_impl : public msg_source
+{
 
-     public:
-      ofdm_subcarrier_allocator_impl();
-      ~ofdm_subcarrier_allocator_impl();
+public:
+  msg_source_impl (const std::string &msg, double delay, bool repeat);
+  ~msg_source_impl ();
 
-      // Where all the action really happens
-      int work(int noutput_items,
-         gr_vector_const_void_star &input_items,
-         gr_vector_void_star &output_items);
-    };
+private:
+  const size_t d_buf_len;
+  const double d_delay;
+  const bool d_repeat;
+  bool d_running;
+  boost::shared_ptr<boost::thread> d_thread;
+  uint8_t *d_buf;
 
-  } // namespace cs330
+  void
+  msg_sender ();
+};
+
+} // namespace cs330
 } // namespace gr
 
-#endif /* INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_IMPL_H */
+#endif /* INCLUDED_CS330_MSG_SOURCE_IMPL_H */
 

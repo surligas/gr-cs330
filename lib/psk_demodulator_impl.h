@@ -676,58 +676,34 @@
  * 
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#ifndef INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H
+#define INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H
 
-#include <gnuradio/io_signature.h>
-#include "ofdm_subcarrier_allocator_impl.h"
+#include <cs330/psk_demodulator.h>
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    ofdm_subcarrier_allocator::sptr
-    ofdm_subcarrier_allocator::make()
-    {
-      return gnuradio::get_initial_sptr
-        (new ofdm_subcarrier_allocator_impl());
-    }
+class psk_demodulator_impl : public psk_demodulator
+{
+public:
+  psk_demodulator_impl (int order, int sync_distance);
+  ~psk_demodulator_impl ();
 
-    /*
-     * The private constructor
-     */
-    ofdm_subcarrier_allocator_impl::ofdm_subcarrier_allocator_impl()
-      : gr::sync_block("ofdm_subcarrier_allocator",
-              gr::io_signature::make(1, 1, 48*sizeof(gr_complex)),
-              gr::io_signature::make(1, 1, 64*sizeof(gr_complex)))
-    {}
+  // Where all the action really happens
+  int
+  work (int noutput_items, gr_vector_const_void_star &input_items,
+        gr_vector_void_star &output_items);
 
-    /*
-     * Our virtual destructor.
-     */
-    ofdm_subcarrier_allocator_impl::~ofdm_subcarrier_allocator_impl()
-    {
-    }
+private:
+  const int             d_sync_distance;
+  const uint8_t         d_sync_marker;
+};
 
-    int
-    ofdm_subcarrier_allocator_impl::work(int noutput_items,
-        gr_vector_const_void_star &input_items,
-        gr_vector_void_star &output_items)
-    {
-      /* Polarity table for the OFDM symbols */
-      static const char polarity[127] =
-        { 1, 1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1,
-            -1, 1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1,
-            1, -1, 1, -1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1,
-            -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, -1,
-            -1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, 1, -1, 1, -1, 1, -1, -1,
-            -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, 1, 1, 1, -1, -1, 1, -1, -1, -1,
-            1, 1, 1, -1, -1, -1, -1, -1, -1, -1 };
+} // namespace cs330
+} // namespace gr
 
-      // Tell runtime system how many output items we produced.
-      return noutput_items;
-    }
-
-  } /* namespace cs330 */
-} /* namespace gr */
+#endif /* INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H */
 

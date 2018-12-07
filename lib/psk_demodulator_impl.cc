@@ -676,39 +676,57 @@
  * 
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
-#ifndef INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_H
-#define INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_H
+#include <gnuradio/io_signature.h>
+#include "psk_demodulator_impl.h"
 
-#include <cs330/api.h>
-#include <gnuradio/sync_block.h>
+namespace gr
+{
+namespace cs330
+{
 
-namespace gr {
-  namespace cs330 {
+psk_demodulator::sptr
+psk_demodulator::make (int order, int sync_distance)
+{
+  return gnuradio::get_initial_sptr (
+      new psk_demodulator_impl (order, sync_distance));
+}
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup cs330
-     *
-     */
-    class CS330_API ofdm_subcarrier_allocator : virtual public gr::sync_block
-    {
-     public:
-      typedef boost::shared_ptr<ofdm_subcarrier_allocator> sptr;
+/*
+ * The private constructor
+ */
+psk_demodulator_impl::psk_demodulator_impl(int order, int sync_distance)
+: gr::sync_block("psk_demodulator",
+    gr::io_signature::make(1, 1, sizeof(gr_complex)),
+    gr::io_signature::make(1, 1, sizeof(uint8_t))),
+    d_sync_distance(sync_distance),
+    d_sync_marker(0x72)
+{}
 
-      /*!
-       * \brief Return a shared_ptr to a new instance of cs330::ofdm_subcarrier_allocator.
-       *
-       * To avoid accidental use of raw pointers, cs330::ofdm_subcarrier_allocator's
-       * constructor is in a private implementation
-       * class. cs330::ofdm_subcarrier_allocator::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make();
-    };
+/*
+ * Our virtual destructor.
+ */
+psk_demodulator_impl::~psk_demodulator_impl ()
+{
+}
 
-  } // namespace cs330
-} // namespace gr
+int
+psk_demodulator_impl::work (int noutput_items,
+                            gr_vector_const_void_star &input_items,
+                            gr_vector_void_star &output_items)
+{
+  const gr_complex *in = (const gr_complex *) input_items[0];
+  uint8_t *out = (uint8_t *) output_items[0];
 
-#endif /* INCLUDED_CS330_OFDM_SUBCARRIER_ALLOCATOR_H */
+  // Do <+signal processing+>
+
+  // Tell runtime system how many output items we produced.
+  return noutput_items;
+}
+
+} /* namespace cs330 */
+} /* namespace gr */
 

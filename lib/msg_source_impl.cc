@@ -681,53 +681,68 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "ofdm_demodulator_impl.h"
+#include "msg_source_impl.h"
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    ofdm_demodulator::sptr
-    ofdm_demodulator::make()
-    {
-      return gnuradio::get_initial_sptr
-        (new ofdm_demodulator_impl());
+msg_source::sptr
+msg_source::make (const std::string &msg, double delay, bool repeat)
+{
+  return gnuradio::get_initial_sptr (new msg_source_impl (msg, delay, repeat));
+}
+
+/*
+ * The private constructor
+ */
+msg_source_impl::msg_source_impl(const std::string &msg, double delay, bool repeat)
+: gr::block("msg_source",
+    /* This block deos not have any stream inputs or outputs, just a message queue */
+    gr::io_signature::make(0, 0, 0),
+    gr::io_signature::make(0, 0, 0)),
+    d_buf_len (msg.length ()),
+            d_delay (delay),
+            d_repeat (repeat),
+            d_running (true)
+{
+  d_buf = new uint8_t[msg.length ()];
+  memcpy (d_buf, msg.c_str (), msg.length ());
+  message_port_register_out (pmt::mp ("msg"));
+  boost::shared_ptr<boost::thread> (
+      new boost::thread (boost::bind (&msg_source_impl::msg_sender, this)));
+}
+
+void
+msg_source_impl::msg_sender ()
+{
+  pmt::pmt_t msg = pmt::make_blob (d_buf, d_buf_len);
+  if (d_repeat) {
+    while (d_running) {
+      boost::this_thread::sleep_for (
+          boost::chrono::milliseconds ((size_t) (d_delay * 1e3)));
+      message_port_pub (pmt::mp ("msg"), msg);
     }
+  }
+  else {
+    boost::this_thread::sleep_for (
+        boost::chrono::milliseconds ((size_t) (d_delay * 1e3)));
+    message_port_pub (pmt::mp ("msg"), msg);
+  }
+}
 
-    /*
-     * The private constructor
-     */
-    ofdm_demodulator_impl::ofdm_demodulator_impl()
-      : gr::sync_block("ofdm_demodulator",
-              gr::io_signature::make(1, 1, 64 * sizeof(gr_complex)),
-              gr::io_signature::make(1, 1, 48 * sizeof(gr_complex)))
-    {}
+/*
+ * Our virtual destructor.
+ */
+msg_source_impl::~msg_source_impl ()
+{
+  d_running = false;
+  d_thread->join ();
+  delete[] d_buf;
+}
 
-    /*
-     * Our virtual destructor.
-     */
-    ofdm_demodulator_impl::~ofdm_demodulator_impl()
-    {
-    }
 
-    int
-    ofdm_demodulator_impl::work(int noutput_items,
-        gr_vector_const_void_star &input_items,
-        gr_vector_void_star &output_items)
-    {
-      /* Polarity table for the OFDM symbols */
-      static const char polarity[127] =
-        { 1, 1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1,
-            -1, 1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1,
-            1, -1, 1, -1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1,
-            -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, -1,
-            -1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, 1, -1, 1, -1, 1, -1, -1,
-            -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, 1, 1, 1, -1, -1, 1, -1, -1, -1,
-            1, 1, 1, -1, -1, -1, -1, -1, -1, -1 };
-
-      // Tell runtime system how many output items we produced.
-      return noutput_items;
-    }
-
-  } /* namespace cs330 */
+} /* namespace cs330 */
 } /* namespace gr */
 

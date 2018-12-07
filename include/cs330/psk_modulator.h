@@ -676,52 +676,41 @@
  * 
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#ifndef INCLUDED_CS330_PSK_MODULATOR_H
+#define INCLUDED_CS330_PSK_MODULATOR_H
 
-#include <gnuradio/io_signature.h>
-#include "constellation_demodulation_impl.h"
+#include <cs330/api.h>
+#include <gnuradio/sync_block.h>
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    constellation_demodulation::sptr
-    constellation_demodulation::make(size_t K, bool is_psk)
-    {
-      return gnuradio::get_initial_sptr
-        (new constellation_demodulation_impl(K, is_psk));
-    }
+/*!
+ * \brief <+description of block+>
+ * \ingroup cs330
+ *
+ */
+class CS330_API psk_modulator : virtual public gr::sync_block
+{
+public:
+  typedef boost::shared_ptr<psk_modulator> sptr;
 
-    /*
-     * The private constructor
-     */
-    constellation_demodulation_impl::constellation_demodulation_impl(size_t K,
-								     bool is_psk)
-      : gr::sync_block("constellation_demodulation",
-              gr::io_signature::make(1, 1, sizeof(gr_complex)),
-              gr::io_signature::make2(2, 2, sizeof(uint8_t), sizeof(float)))
-    {}
+  /*!
+   * \brief Return a shared_ptr to a new instance of cs330::psk_modulator.
+   *
+   * To avoid accidental use of raw pointers, cs330::psk_modulator's
+   * constructor is in a private implementation
+   * class. cs330::psk_modulator::make is the public interface for
+   * creating new instances.
+   */
+  static sptr
+  make (int mod_order = 1, int sync_distance = 4);
+};
 
-    /*
-     * Our virtual destructor.
-     */
-    constellation_demodulation_impl::~constellation_demodulation_impl()
-    {
-    }
+} // namespace cs330
+} // namespace gr
 
-    int
-    constellation_demodulation_impl::work(int noutput_items,
-        gr_vector_const_void_star &input_items,
-        gr_vector_void_star &output_items)
-    {
-
-      // Do <+signal processing+>
-
-      // Tell runtime system how many output items we produced.
-      return noutput_items;
-    }
-
-  } /* namespace cs330 */
-} /* namespace gr */
+#endif /* INCLUDED_CS330_PSK_MODULATOR_H */
 

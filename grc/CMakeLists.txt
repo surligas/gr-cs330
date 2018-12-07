@@ -21,11 +21,12 @@ install(FILES
     cs330_convolutional_encoder.xml
     cs330_constellation_mapping.xml
     cs330_constellation_demodulation.xml
-    cs330_ofdm_subcarrier_allocator.xml
-    cs330_ofdm_demodulator.xml
     cs330_hamming_encoder.xml
     cs330_hamming_decoder.xml
     cs330_block_interleaver.xml
     cs330_block_deinterleaver.xml
-    cs330_horizontal_sum_c.xml DESTINATION share/gnuradio/grc/blocks
+    cs330_horizontal_sum_c.xml
+    cs330_psk_modulator.xml
+    cs330_psk_demodulator.xml
+    cs330_msg_source.xml DESTINATION share/gnuradio/grc/blocks
 )

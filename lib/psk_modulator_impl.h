@@ -676,29 +676,39 @@
  * 
  */
 
+#ifndef INCLUDED_CS330_PSK_MODULATOR_IMPL_H
+#define INCLUDED_CS330_PSK_MODULATOR_IMPL_H
 
-#ifndef _QA_CONSTELLATION_DEMODULATION_H_
-#define _QA_CONSTELLATION_DEMODULATION_H_
+#include <cs330/psk_modulator.h>
 
-#include <cppunit/extensions/HelperMacros.h>
-#include <cppunit/TestCase.h>
+namespace gr
+{
+namespace cs330
+{
 
-namespace gr {
-  namespace cs330 {
+class psk_modulator_impl : public psk_modulator
+{
 
-    class qa_constellation_demodulation : public CppUnit::TestCase
-    {
-    public:
-      CPPUNIT_TEST_SUITE(qa_constellation_demodulation);
-      CPPUNIT_TEST(t1);
-      CPPUNIT_TEST_SUITE_END();
+public:
+  psk_modulator_impl (int mod_order, int sync_distance);
+  ~psk_modulator_impl ();
 
-    private:
-      void t1();
-    };
+  // Where all the action really happens
+  int
+  work (int noutput_items, gr_vector_const_void_star &input_items,
+        gr_vector_void_star &output_items);
+private:
+  const int             d_sync_distance;
+  const int             d_max_packet_len;
+  const uint8_t         d_sync_marker;
+  uint8_t               *d_msg_buffer;
+  uint8_t               *d_msg_with_sync_buffer;
+  int                   d_msg_len;
+  int                   d_remaining;
+};
 
-  } /* namespace cs330 */
-} /* namespace gr */
+} // namespace cs330
+} // namespace gr
 
-#endif /* _QA_CONSTELLATION_DEMODULATION_H_ */
+#endif /* INCLUDED_CS330_PSK_MODULATOR_IMPL_H */
 

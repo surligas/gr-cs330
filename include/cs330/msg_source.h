@@ -676,21 +676,41 @@
  * 
  */
 
+#ifndef INCLUDED_CS330_MSG_SOURCE_H
+#define INCLUDED_CS330_MSG_SOURCE_H
 
-#include <gnuradio/attributes.h>
-#include <cppunit/TestAssert.h>
-#include "qa_constellation_demodulation.h"
-#include <cs330/constellation_demodulation.h>
+#include <cs330/api.h>
+#include <gnuradio/block.h>
 
-namespace gr {
-  namespace cs330 {
+namespace gr
+{
+namespace cs330
+{
 
-    void
-    qa_constellation_demodulation::t1()
-    {
-      // Put test here
-    }
+/*!
+ * \brief <+description of block+>
+ * \ingroup cs330
+ *
+ */
+class CS330_API msg_source : virtual public gr::block
+{
+public:
+  typedef boost::shared_ptr<msg_source> sptr;
 
-  } /* namespace cs330 */
-} /* namespace gr */
+  /*!
+   * \brief Return a shared_ptr to a new instance of cs330::msg_source.
+   *
+   * To avoid accidental use of raw pointers, cs330::msg_source's
+   * constructor is in a private implementation
+   * class. cs330::msg_source::make is the public interface for
+   * creating new instances.
+   */
+  static sptr
+  make (const std::string &msg, double delay, bool repeat = true);
+};
+
+} // namespace cs330
+} // namespace gr
+
+#endif /* INCLUDED_CS330_MSG_SOURCE_H */
 

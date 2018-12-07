@@ -1,10 +1,24 @@
 <?xml version="1.0"?>
 <block>
-  <name>ofdm_demodulator</name>
-  <key>cs330_ofdm_demodulator</key>
-  <category>cs330</category>
+  <name>PSK Modulator</name>
+  <key>cs330_psk_modulator</key>
+  <category>[cs330]</category>
   <import>import cs330</import>
-  <make>cs330.ofdm_demodulator()</make>
+  <make>cs330.psk_modulator($mod_order, $sync_distance)</make>
+
+  <param>
+    <name>Modulation Order</name>
+    <key>mod_order</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+  
+  <param>
+    <name>Sync Markers Distance (bytes)</name>
+    <key>sync_distance</key>
+    <value>4</value>
+    <type>int</type>
+  </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:
        * name (an identifier for the GUI)
@@ -13,8 +27,7 @@
        * optional (set to 1 for optional inputs) -->
   <sink>
     <name>in</name>
-    <type>complex</type>
-    <vlen>64</vlen>
+    <type>message</type>
   </sink>
 
   <!-- Make one 'source' node per output. Sub-nodes:
@@ -24,7 +37,6 @@
        * optional (set to 1 for optional inputs) -->
   <source>
     <name>out</name>
-	<type>complex</type>
-    <vlen>48</vlen>
+    <type>complex</type>
   </source>
 </block>

@@ -676,31 +676,39 @@
  * 
  */
 
-#ifndef INCLUDED_CS330_OFDM_DEMODULATOR_IMPL_H
-#define INCLUDED_CS330_OFDM_DEMODULATOR_IMPL_H
 
-#include <cs330/ofdm_demodulator.h>
+#ifndef INCLUDED_CS330_PSK_DEMODULATOR_H
+#define INCLUDED_CS330_PSK_DEMODULATOR_H
+
+#include <cs330/api.h>
+#include <gnuradio/sync_block.h>
 
 namespace gr {
   namespace cs330 {
 
-    class ofdm_demodulator_impl : public ofdm_demodulator
+    /*!
+     * \brief <+description of block+>
+     * \ingroup cs330
+     *
+     */
+    class CS330_API psk_demodulator : virtual public gr::sync_block
     {
-     private:
-      // Nothing to declare in this block.
-
      public:
-      ofdm_demodulator_impl();
-      ~ofdm_demodulator_impl();
+      typedef boost::shared_ptr<psk_demodulator> sptr;
 
-      // Where all the action really happens
-      int work(int noutput_items,
-         gr_vector_const_void_star &input_items,
-         gr_vector_void_star &output_items);
+      /*!
+       * \brief Return a shared_ptr to a new instance of cs330::psk_demodulator.
+       *
+       * To avoid accidental use of raw pointers, cs330::psk_demodulator's
+       * constructor is in a private implementation
+       * class. cs330::psk_demodulator::make is the public interface for
+       * creating new instances.
+       */
+      static sptr make(int order = 1, int sync_distance = 4);
     };
 
   } // namespace cs330
 } // namespace gr
 
-#endif /* INCLUDED_CS330_OFDM_DEMODULATOR_IMPL_H */
+#endif /* INCLUDED_CS330_PSK_DEMODULATOR_H */
 
