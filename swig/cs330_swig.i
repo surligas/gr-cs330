@@ -10,8 +10,6 @@
 %{
 #include "cs330/complex_clamp.h"
 #include "cs330/convolutional_encoder.h"
-#include "cs330/constellation_mapping.h"
-#include "cs330/constellation_demodulation.h"
 #include "cs330/hamming_encoder.h"
 #include "cs330/hamming_decoder.h"
 #include "cs330/block_interleaver.h"
@@ -26,10 +24,6 @@
 GR_SWIG_BLOCK_MAGIC2(cs330, complex_clamp);
 %include "cs330/convolutional_encoder.h"
 GR_SWIG_BLOCK_MAGIC2(cs330, convolutional_encoder);
-%include "cs330/constellation_mapping.h"
-GR_SWIG_BLOCK_MAGIC2(cs330, constellation_mapping);
-%include "cs330/constellation_demodulation.h"
-GR_SWIG_BLOCK_MAGIC2(cs330, constellation_demodulation);
 
 
 %include "cs330/hamming_encoder.h"
