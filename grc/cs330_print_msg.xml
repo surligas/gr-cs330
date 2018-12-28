@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<block>
+  <name>Print Message</name>
+  <key>cs330_print_msg</key>
+  <category>[cs330]</category>
+  <import>import cs330</import>
+  <make>cs330.print_msg($type)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Output format</name>
+    <key>type</key>
+    <type>enum</type>
+    <option>
+      <name>Binary</name>
+      <key>0</key>
+    </option>
+    <option>
+      <name>Hex annotated</name>
+      <key>1</key>
+    </option>
+    <option>
+      <name>Binary annotated</name>
+      <key>2</key>
+    </option>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+</block>

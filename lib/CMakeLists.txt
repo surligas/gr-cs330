@@ -34,7 +34,8 @@ list(APPEND cs330_sources
     horizontal_sum_c_impl.cc
     psk_modulator_impl.cc
     psk_demodulator_impl.cc
-    msg_source_impl.cc )
+    msg_source_impl.cc
+    print_msg_impl.cc )
 
 set(cs330_sources "${cs330_sources}" PARENT_SCOPE)
 if(NOT cs330_sources)

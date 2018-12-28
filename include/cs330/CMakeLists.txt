@@ -33,5 +33,7 @@ install(FILES
     horizontal_sum_c.h
     psk_modulator.h
     psk_demodulator.h
-    msg_source.h DESTINATION include/cs330
+    msg_source.h
+    print_msg.h
+    utils.h DESTINATION include/cs330
 )

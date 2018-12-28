@@ -18,6 +18,7 @@
 #include "cs330/psk_modulator.h"
 #include "cs330/psk_demodulator.h"
 #include "cs330/msg_source.h"
+#include "cs330/print_msg.h"
 %}
 
 %include "cs330/complex_clamp.h"
@@ -42,3 +43,5 @@ GR_SWIG_BLOCK_MAGIC2(cs330, psk_modulator);
 GR_SWIG_BLOCK_MAGIC2(cs330, psk_demodulator);
 %include "cs330/msg_source.h"
 GR_SWIG_BLOCK_MAGIC2(cs330, msg_source);
+%include "cs330/print_msg.h"
+GR_SWIG_BLOCK_MAGIC2(cs330, print_msg);

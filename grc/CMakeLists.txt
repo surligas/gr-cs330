@@ -28,5 +28,6 @@ install(FILES
     cs330_horizontal_sum_c.xml
     cs330_psk_modulator.xml
     cs330_psk_demodulator.xml
-    cs330_msg_source.xml DESTINATION share/gnuradio/grc/blocks
+    cs330_msg_source.xml
+    cs330_print_msg.xml DESTINATION share/gnuradio/grc/blocks
 )

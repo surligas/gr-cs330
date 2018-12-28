@@ -676,37 +676,31 @@
  *
  */
 
-#ifndef INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H
-#define INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H
+#ifndef INCLUDED_CS330_PRINT_MSG_IMPL_H
+#define INCLUDED_CS330_PRINT_MSG_IMPL_H
 
-#include <cs330/psk_demodulator.h>
+#include <cs330/print_msg.h>
 
 namespace gr
 {
 namespace cs330
 {
 
-class psk_demodulator_impl : public psk_demodulator
+class print_msg_impl : public print_msg
 {
-public:
-  psk_demodulator_impl(int order, int sync_distance, size_t max_msg_len);
-  ~psk_demodulator_impl ();
 
-  // Where all the action really happens
-  int
-  work (int noutput_items, gr_vector_const_void_star &input_items,
-        gr_vector_void_star &output_items);
+public:
+  print_msg_impl(int type);
+  ~print_msg_impl();
 
 private:
-  const int             d_sync_distance;
-  const uint8_t         d_sync_marker;
-  const size_t          d_msg_len;
+  const int     d_type;
 
-  uint8_t               *d_msg_buffer;
+  void
+  msg_handler_stdout(pmt::pmt_t msg);
 };
 
 } // namespace cs330
 } // namespace gr
 
-#endif /* INCLUDED_CS330_PSK_DEMODULATOR_IMPL_H */
-
+#endif /* INCLUDED_CS330_PRINT_MSG_IMPL_H */

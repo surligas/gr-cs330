@@ -4,7 +4,7 @@
   <key>cs330_psk_demodulator</key>
   <category>[cs330]</category>
   <import>import cs330</import>
-  <make>cs330.psk_demodulator($order, $sync_distance)</make>
+  <make>cs330.psk_demodulator($order, $sync_distance, $max_msg_len)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
@@ -21,6 +21,13 @@
     <name>Sync Markers Distance (bytes)</name>
     <key>sync_distance</key>
     <value>4</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Message size</name>
+    <key>max_msg_len</key>
+    <value>256</value>
     <type>int</type>
   </param>
   <!-- Make one 'sink' node per input. Sub-nodes:
@@ -40,6 +47,6 @@
        * optional (set to 1 for optional inputs) -->
   <source>
     <name>out</name>
-    <type>byte</type>
+    <type>message</type>
   </source>
 </block>
