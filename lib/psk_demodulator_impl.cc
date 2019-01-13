@@ -732,7 +732,6 @@ psk_demodulator_impl::work (int noutput_items,
                             gr_vector_void_star &output_items)
 {
   const gr_complex *in = (const gr_complex *) input_items[0];
-  uint8_t *out = (uint8_t *) output_items[0];
 
   // Do <+signal processing+>
 
