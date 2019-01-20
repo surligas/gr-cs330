@@ -308,7 +308,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(31, 523)</value>
+      <value>(31, 586)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -316,11 +316,38 @@
     </param>
     <param>
       <key>id</key>
-      <value>rrc_taps</value>
+      <value>rrc_taps_rx</value>
     </param>
     <param>
       <key>value</key>
-      <value>firdes.root_raised_cosine(nfilts, nfilts, 1.0/float(sps), excess_bw, 11*sps*nfilts)</value>
+      <value>firdes.root_raised_cosine(nfilts, nfilts, 1.0/sps, excess_bw, 11*sps*nfilts)</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(31, 522)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rrc_taps_tx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>firdes.root_raised_cosine(nfilts, nfilts, 1.0, excess_bw, 11*sps*nfilts)</value>
     </param>
   </block>
   <block>
@@ -934,7 +961,7 @@
     </param>
     <param>
       <key>filter_size</key>
-      <value>32</value>
+      <value>nfilts</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -950,7 +977,7 @@
     </param>
     <param>
       <key>init_phase</key>
-      <value>16</value>
+      <value>nfilts/2</value>
     </param>
     <param>
       <key>loop_bw</key>
@@ -978,7 +1005,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>rrc_taps</value>
+      <value>rrc_taps_rx</value>
     </param>
     <param>
       <key>type</key>
@@ -1056,7 +1083,7 @@
     </param>
     <param>
       <key>nfilts</key>
-      <value>32</value>
+      <value>nfilts</value>
     </param>
     <param>
       <key>rrate</key>
@@ -1072,7 +1099,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>rrc_taps</value>
+      <value>rrc_taps_tx</value>
     </param>
     <param>
       <key>type</key>
