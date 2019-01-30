@@ -16,7 +16,7 @@ If this is the first time you are building the gr-satnogs module run
 `sudo ldconfig`
 
 #### Advanced
-By default, the **SatNOGS** module will use the default installation prefix.
+By default, the **cs330** module will use the default installation prefix.
 This highly depends on the Linux distribution. You can use the `CMAKE_INSTALL_PREFIX`
 variable to alter the default installation path.
 E.g:
