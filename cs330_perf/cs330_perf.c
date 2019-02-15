@@ -26,13 +26,13 @@ uint32_t seq_buf = 0;
 uint32_t lost_packets = 0;
 uint32_t last_count = 0;
 struct timespec ts1, ts2;
-
+double bytes =0;
 
 void
 get_args(int argc, char **argv)
 {
 	int flag;
-	while((flag = getopt(argc, argv,"p:i:c:t:d:")) != -1)
+	while((flag = getopt(argc, argv,"p:i:c:t:d:m:")) != -1)
 	{
 		switch(flag){
 		case 'p':
@@ -49,6 +49,9 @@ get_args(int argc, char **argv)
 			break;
 		case 'd':
 			conn.delay = 1000 * atoi(optarg);
+			break;
+		case 'm':
+			conn.tx_delay = atoi(optarg);
 			break;
 		default:
 			fprintf(stdout, usage_longstr);
@@ -70,6 +73,12 @@ run_client() {
 
 	uint32_t counter = 0;
 	uint8_t* buffer = (uint8_t*) malloc(conn.packet_size * sizeof(uint8_t));
+	uint32_t div_size = (conn.packet_size - 4)/sizeof(usage_longstr);
+	for(size_t i=0; i < div_size ; i++){
+	  memcpy(&buffer[4+i*sizeof(usage_longstr)], usage_longstr, sizeof(usage_longstr)*sizeof(uint8_t));
+	}
+	uint32_t mod_size = (conn.packet_size - 4)%sizeof(usage_longstr);
+	memcpy(&buffer[4 + div_size*sizeof(usage_longstr)], usage_longstr, mod_size*sizeof(uint8_t));
 	uint32_t network_counter = 0;
 	int32_t npackets = 0;
 	usleep(conn.delay);
@@ -83,7 +92,7 @@ run_client() {
 				exit(1);
 			}
 			packets_sent++;
-			//sleep(0.1);
+			usleep(conn.tx_delay);
 		}
 	} else {
 		while (1) {
@@ -94,7 +103,7 @@ run_client() {
 				fprintf(stderr, "send to error");
 				exit(1);
 			}
-			//sleep(0.1);
+			usleep(conn.tx_delay);
 			packets_sent++;
 			counter++;
 		}
@@ -110,7 +119,7 @@ run_server()
 	server.sin_port        = htons(conn.rxport);
 	server.sin_addr.s_addr = INADDR_ANY;
 
-	uint8_t *buffer = (uint8_t *)malloc(65536*sizeof(uint8_t));
+	uint8_t *rx_buffer = (uint8_t *)malloc(65536*sizeof(uint8_t));
 
 
     if ( bind(conn.rx_socket, (const struct sockaddr *)&server,
@@ -123,12 +132,12 @@ run_server()
 	int client_size = sizeof(client);
     clock_gettime(CLOCK_MONOTONIC, &ts1);
 	while (1) {
-		if (recvfrom(conn.rx_socket, buffer, 65536*sizeof(uint8_t), 0, (struct sockaddr *) &client,
+		if (recvfrom(conn.rx_socket, rx_buffer, 65536*sizeof(uint8_t), 0, (struct sockaddr *) &client,
 				&client_size) < 0) {
 			fprintf(stderr, "Receive error\n");
 			exit(1);
 		}
-		memcpy(&seq_buf, &buffer[0], sizeof(uint32_t));
+		memcpy(&seq_buf, &rx_buffer[0], sizeof(uint32_t));
 		seq_buf = ntohl(seq_buf);
 		if (seq_buf == seq_num +1){
 			seq_num++;
@@ -151,6 +160,7 @@ print_statistics()
 {
 	uint64_t total_bytes = 0;
 	uint32_t total_counts = 0;
+	uint32_t seconds = 0;
 	float throughput = 0;
 	while(1){
 		total_bytes = (seq_num - last_count)*conn.packet_size;
@@ -158,13 +168,17 @@ print_statistics()
 
 		throughput = 1.0*total_bytes/(1000000*(1.0*((ts2.tv_sec - ts1.tv_sec))));
 		total_counts++;
-		printf("Packets sent = %ld "
-				"Packets received = %ld "
-				"Packet loss = %f "
-				"Throughput = %lf MB/s \r", packets_sent,seq_num,
-				(100*lost_packets*1.0)/seq_num, 1.0*total_bytes/(1000000*(1.0*((ts2.tv_sec - ts1.tv_sec)))));
-		fflush(stdout);
-		last_count = seq_num;
+		if(total_bytes > 0){
+		  seconds++;
+		  bytes += 1.0*total_bytes/(1000000*(1.0*((ts2.tv_sec - ts1.tv_sec))));
+		  printf("Packet loss = %f "
+				"Throughput = %lf MB/s " 
+				"Mean throughput = %f MB/s \r",
+				(100*lost_packets*1.0)/seq_num, throughput, 
+				bytes/seconds);
+		  fflush(stdout);
+	          last_count = seq_num;
+		}
 		clock_gettime(CLOCK_MONOTONIC, &ts1);
 		sleep(1);
 	}
